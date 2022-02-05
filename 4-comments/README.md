@@ -24,6 +24,49 @@ Sometimes it is useful to wanr other programmers about certain consequences.
 
 It is sometimes reasonable to leave "To do" notes in the form of //TODO comments.
 
-### AMplification
+### Amplification 
 
 A comment may be used to amplify the importance of something that may otherwise seem incsequential.
+
+## Bad Comments
+
+Most comments fall into this category.
+
+### Mumbling
+
+Plopping in a comment just because you feel you should or because the process requires it, is a hack.
+Any comment that forces you to look in another module for the meaning of that comment has failed to communicate to you an dis not worth the bits it consumes.
+
+### Redundat Comments
+
+Comments that describe line by line each line don't serve any porpouse. 
+
+### Misleading Comments
+
+Comments that describe somethins that's not clear enough or it's not true or not precise.
+
+### Don't use a Comment When You Can Use a Function or a Variable
+
+```
+// does the module from the global list <mod> depend on the subsytem we are part of?
+if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem()))
+```
+
+Can be refactored to
+
+```
+ArrayList moduleDepndees = smodule.getDependSubsystems();
+String ourSubSystem = subSysMod.getSubSystem();
+if (moduleDependees.contains(ourSubSystem))
+```
+
+### Commented-Out Code
+
+Others who see that commented-out code won't have the courage to delete it. They will think it is there for a reason and is too important to delete.
+We have good source code control systems now, commenting code shouldn't be necessary.
+
+### Nonlocal Information
+
+If you must write a comment, then make sure it describes the code it appears near. Don't offer systemwide information in the context of a local comment.
+
+
