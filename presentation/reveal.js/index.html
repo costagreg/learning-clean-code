@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/night.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ##
+              <img width="50%" data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXiCLaXo-haziow4z37tTCzYgsOZ2Bc2kJfRoedHtDO5l93LMo">
+            <aside class="notes">
+              Speak about the book:
+              - it's written for Java
+              - Speak about the author Uncle Bob (find some fun facts about him)
+            </aside>
+            ---
+            ## Why? 
+            <img src="https://camo.githubusercontent.com/5039494830418a41d5bb10ea38bb221234da9ab552ee528a2f8f037aea9b1e7f/687474703a2f2f7777772e6f736e6577732e636f6d2f696d616765732f636f6d6963732f7774666d2e6a7067" />
+            <aside class="notes">
+              Let's start understanding what's a bad code... number of WTFs per minute coming out from behind the door where a code review is taking place
+              Right door, bad code
+              Left door, clean code.
+              How do we get behiend the left door?
+            </aside>
+            ---
+            ### Why
+            <ul>
+              <li>Code is everywhere</li>
+              <li>Software failures can kills people</li>
+            </ul>
+            <aside class="notes">
+              To-do: find some facts about of failures?
+            </aside>
+            ---
+            ### Bad code
+            <ul>
+              <li>can bring a company down.</li>
+              <li>we think that a working mess is better than nothing.</li>
+              <li>we say, we would go back and clean it later</li>
+              <li>LeBlanc's law: Later equals never.</li>
+            </ul>
+            <aside class="notes">
+              Why is that important?
+              - Code is everywhere
+              - Our society runs of software 
+              - And we all know that later equals never
+            </aside>
+            ---
+            ### Attitude 
+            <ul>
+              <li>The only way to go fast is to go well!</li>
+              <li>It is not just about to make the code work</li>
+              <li>We are authors</li>
+              <li>The boy scout rule</li>
+            </ul>
+            <aside class="notes">
+             Making a code work is the first pieace (half of the job) of the puzzle but after we need to make it clean.
+             The code is done when it is clean. Clean so other reader can understand and mantain. If the code works but I cannot understand it's useless.
+             The code has to been understand by the machine and by humns
+             Leave the campground cleaner than you found it.
+             It's more important that your peers can understand the code than the computer.
+            </aside>
+            ---
+            ### What is clean code? 
+            <ul>
+              <li>"Clean code always loks like it was written by someone who cares" by Micheal Feathers</li>
+              <li>"You know you are working in clean code when each rutine you read turns out what you expected" by Ward Cunnigham </li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>
+              The author cared about me
+                </li>
+                <li>
+                  No supprise
+                </li>
+                <li>
+Ward Cunnigham: father of the wiki
+                </li>
+                <li>
+                  When was last time that you read a code and did what you expected?
+                </li>
+              </ul>
+            </aside>
+            ---
+            ### Polite Code
+            <ul>
+              <li>You should write code as you write a newspaper article</li>
+              <li>Allow readers of your code to escape earlier </li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>You start with a title, a first paragrah (synopsis) which describe everything in the paper in an abstract way, next parahraph will be more detailed </li>
+                <li>This was of writing code is collad polite because allow the reader to escape earlier</li>
+                <li>Same way you read an article in the news, no one usually read all article but the author is in charge to stop till he is sodddisfied with the level of knoeldge</li>
+                <li>You cannot do that in spaghetti code, you need to read all code to understand what you need to</li>
+            </aside>
+            ---
+            <section>
+              <h3>Variables</h3>
+
+              <ul>
+                <li>Name are everywhere in the code so we better name veriables, class and function well.</li>
+                <li>Names should reval intent(pupose).</li>
+                <li>The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name require a comment, then the name does not reveal its intent.</li>
+              </ul>
+            </section>
+            <section>
+              <p>Use meaningful and pronounceable variable names</p>
+              <div>
+              <img style="vertical-align:middle" src="https://emojis.slackmojis.com/emojis/images/1643514558/5570/confused_dog.gif?1643514558" /> 
+              </div>
+              <pre><code>
+              const yyyymmdstr = moment().format("YYYY/MM/DD");
+                </code>
+              </pre>
+              <div>
+              <img style="vertical-align:middle" src="https://emojis.slackmojis.com/emojis/images/1643514758/7667/think-about-it.png?1643514758" /> 
+              </div>
+              <pre><code>
+              const currentDate = moment().format("YYYY/MM/DD");
+              </code>
+              </pre>
+            </section>
+            <section>
+              <p>Noise words are redundant</p>
+              <div>
+              <img style="vertical-align:middle" src="https://emojis.slackmojis.com/emojis/images/1643514558/5570/confused_dog.gif?1643514558" /> 
+              </div>
+              <pre>
+                <code>
+                  getActiveAccount()
+                  getActiveAccounts()
+                  getActiveAccountInfo()
+                </code>
+              </pre>
+              <div>
+              <img style="vertical-align:middle" src="https://emojis.slackmojis.com/emojis/images/1643514758/7667/think-about-it.png?1643514758" /> 
+              </div>
+              <pre><code>
+                  getUser();
+              </code>
+              </pre>
+              <aside class="notes">
+                How the reader is meant to know the different between these functions?
+              </aside>
+            </section>
+            <section>
+              <p>Use searchable name</p>
+              <div>
+              <img style="vertical-align:middle" src="https://emojis.slackmojis.com/emojis/images/1643514558/5570/confused_dog.gif?1643514558" /> 
+              </div>
+              <pre>
+                <code>
+                  setTimeout(blastOff, 86400000);
+                </code>
+              </pre>
+              <div>
+              <img style="vertical-align:middle" src="https://emojis.slackmojis.com/emojis/images/1643514758/7667/think-about-it.png?1643514758" /> 
+              </div>
+              <pre><code>
+                  const MILLISECONDS_PER_DAY = 60 * 60 * 24 * 1000; //86400000;
+                  setTimeout(blastOff, MILLISECONDS_PER_DAY);
+              </code>
+              </pre>
+              <aside class="notes">
+                How the reader is meant to know the different between these functions?
+              </aside>
+            </section>
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
